@@ -1,0 +1,7 @@
+﻿- type: entity
+  name: paperwork packet
+  parent: Paper
+  id: PaperWork
+  description: 'A packet of papers that are easy to flip through.'
+  components:
+  - type: PaperworkPacket

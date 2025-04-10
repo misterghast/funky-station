@@ -1,0 +1,6 @@
+﻿<paper:PaperPacketWindow xmlns="https://spacestation14.io"
+    xmlns:paper="clr-namespace:Content.Client.Paper.UI"
+    MouseFilter="Stop" Resizable="True" MinSize="150 150"
+    SetSize="510 660"> <!-- Provide some reasonable sizes by default. Can be changed by the component -->
+
+</paper:PaperPacketWindow>
