@@ -1,0 +1,33 @@
+﻿- type: entity
+  name: xl beaker
+  parent: BaseBeaker
+  description: Used to contain a quite large amount of chemicals or solutions.
+  id: XLBeaker
+  components:
+  - type: Spillable
+    solution: beaker
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/beaker_extralarge.rsi
+    layers:
+    - state: beakerextralarge
+    - state: beakerextralarge1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Normal
+    sprite: Objects/Specific/Chemistry/beaker_extralarge.rsi
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 120
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: beakerlarge
+    inHandsMaxFillLevels: 4
+    inHandsFillBaseName: -fill-
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100
+  - type: StaticPrice
+    price: 20

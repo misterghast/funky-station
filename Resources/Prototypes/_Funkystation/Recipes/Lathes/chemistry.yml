@@ -1,0 +1,18 @@
+﻿- type: latheRecipe
+  id: XLBeaker
+  result: XLBeaker
+  completetime: 2
+  materials:
+    Glass: 100
+    Plastic: 25
+
+- type: latheRecipe
+  id: MetaMaterialBeaker
+  result: MetaMaterialBeaker
+  completetime: 2
+  materials:
+    Glass: 75
+    Plastic: 75
+    Gold: 25
+    Silver: 15
+
