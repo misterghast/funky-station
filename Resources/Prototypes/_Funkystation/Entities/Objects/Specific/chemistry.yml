@@ -7,7 +7,7 @@
   - type: Spillable
     solution: beaker
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker_extralarge.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_extralarge.rsi
     layers:
     - state: beakerextralarge
     - state: beakerextralarge1
@@ -42,7 +42,7 @@
   - type: Spillable
     solution: beaker
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker_extralarge.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_extralarge.rsi
     layers:
     - state: beakermetamat
     - state: beakermetamat1
