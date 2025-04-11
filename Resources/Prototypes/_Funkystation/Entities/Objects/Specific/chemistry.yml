@@ -29,5 +29,43 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
+      Plastic: 25
   - type: StaticPrice
-    price: 20
+    price: 35
+
+- type: entity
+  name: metamaterial beaker
+  parent: BaseBeaker
+  description: An advanced beaker used to contain a VERY large amount of chemicals or solutions.
+  id: MetaMaterialBeaker
+  components:
+  - type: Spillable
+    solution: beaker
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/beaker_extralarge.rsi
+    layers:
+    - state: beakermetamat
+    - state: beakermetamat1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Normal
+    sprite: Objects/Specific/Chemistry/beaker_extralarge.rsi
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 180
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: beakerlarge
+    inHandsMaxFillLevels: 4
+    inHandsFillBaseName: -fill-
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 75
+      Plastic: 75
+      Gold: 25
+      Silver: 15
+  - type: StaticPrice
+    price: 60
