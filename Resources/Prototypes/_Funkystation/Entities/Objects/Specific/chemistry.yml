@@ -15,7 +15,7 @@
       visible: false
   - type: Item
     size: Normal
-    sprite: Objects/Specific/Chemistry/beaker_extralarge.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_extralarge.rsi
   - type: SolutionContainerManager
     solutions:
       beaker:
@@ -23,7 +23,7 @@
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
-    fillBaseName: beakerlarge
+    fillBaseName: beakerextralarge
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
   - type: PhysicalComposition
@@ -42,7 +42,7 @@
   - type: Spillable
     solution: beaker
   - type: Sprite
-    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_extralarge.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_metamat.rsi
     layers:
     - state: beakermetamat
     - state: beakermetamat1
@@ -50,7 +50,7 @@
       visible: false
   - type: Item
     size: Normal
-    sprite: Objects/Specific/Chemistry/beaker_extralarge.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_metamat.rsi
   - type: SolutionContainerManager
     solutions:
       beaker:
@@ -58,7 +58,7 @@
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
-    fillBaseName: beakerlarge
+    fillBaseName: beakermetamat
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
   - type: PhysicalComposition
