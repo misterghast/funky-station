@@ -1,0 +1,91 @@
+﻿- type: entity
+  name: envelope
+  parent: BaseItem
+  id: BaseBigEnvelope
+  description: 'A larger envelope for mailing objects or multiple documents.'
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: envelope_open
+      map: ["enum.EnvelopeVisualLayers.Open"]
+    - state: envelope_closed
+      map: ["enum.EnvelopeVisualLayers.Sealed"]
+      visible: false
+    - state: envelope_torn
+      map: ["enum.EnvelopeVisualLayers.Torn"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: Paper
+    content: envelope-default-message
+  - type: PaperVisuals
+    headerImagePath: "/Textures/Interface/Paper/paper_heading_postage_stamp.svg.96dpi.png"
+    headerMargin: 216.0, 0.0, 0.0, 0.0
+    contentMargin: 0.0, 0.0, 0.0, 0.0
+    maxWritableArea: 368.0, 256.0
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: Envelope
+  - type: ContainerContainer
+    containers:
+      letter_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      object_slot_1:
+        name: object-slot-1
+        insertSound: /Audio/Effects/packetrip.ogg
+        ejectSound: /Audio/Effects/packetrip.ogg
+        whitelist:
+          sizes:
+          - Small
+          - Tiny
+        priority: 1
+      object_slot_2:
+        name: object-slot-2
+        insertSound: /Audio/Effects/packetrip.ogg
+        ejectSound: /Audio/Effects/packetrip.ogg
+        whitelist:
+          sizes:
+          - Small
+          - Tiny
+        priority: 2
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - Trash
+    - Document
+  #- type: Appearance, hide stamp marks until we have some kind of displacement
+  - type: Flammable
+    fireSpread: true
+    canResistFire: false
+    alwaysCombustible: true
+    canExtinguish: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
