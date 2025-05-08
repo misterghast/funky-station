@@ -1,0 +1,5 @@
+﻿- type: entity
+  parent: BaseItem
+  id: BasePowersuit
+  components:
+  - type: PowerSuit
