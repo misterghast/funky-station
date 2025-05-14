@@ -27,15 +27,11 @@ public sealed class PowerSuitSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<PowerSuitComponent, MapInitEvent>(OnMapInit, before: new []{typeof(ItemSlotsSystem)});
-        SubscribeLocalEvent<PowerSuitComponent, MapInitEvent>(PostMapInit, after: new []{typeof(ItemSlotsSystem)});
-        SubscribeLocalEvent<PowerSuitComponent, ItemSlotEjectAttemptEvent>(OnItemEjected);
-        SubscribeLocalEvent<PowerSuitComponent, ItemSlotInsertAttemptEvent>(OnItemInserted);
     }
 
     /// <summary>
-    /// Automatically generate storage slots for all NumSlots, and fill them with their initial chemicals.
+    /// Automatically generate storage slots for all NumSlots, and fill them with their initial modules.
     /// The actual spawning of entities happens in ItemSlotsSystem's MapInit.
     /// </summary>
     private void OnMapInit(EntityUid uid, PowerSuitComponent component, MapInitEvent args)
@@ -51,7 +47,7 @@ public sealed class PowerSuitSystem : EntitySystem
         // Populate storage slots with base storage slot whitelist
         for (var i = 0; i < component.NumSlots; i++)
         {
-            var storageSlotId = ReagentDispenserComponent.BaseStorageSlotId + i;
+            var storageSlotId = PowerSuitComponent.BaseStorageSlotId + i;
             ItemSlot storageComponent = new();
             storageComponent.Whitelist = component.StorageWhitelist;
             storageComponent.Swap = false;
@@ -61,34 +57,10 @@ public sealed class PowerSuitSystem : EntitySystem
             if (i < preLoad.Count)
                 storageComponent.StartingItem = preLoad[i];
 
-
             component.ModuleSlotIds.Add(storageSlotId);
             component.ModuleSlots.Add(storageComponent);
             component.ModuleSlots[i].Name = "Module Slot " + (i+1);
             _itemSlotsSystem.AddItemSlot(uid, component.ModuleSlotIds[i], component.ModuleSlots[i]);
-        }
-
-        _itemSlotsSystem.AddItemSlot(uid, SharedReagentDispenser.OutputSlotName, component.MaterialSlot);
-    }
-
-    private void PostMapInit(EntityUid uid, PowerSuitComponent component, MapInitEvent args)
-    {
-        if (!TryComp<ItemSlotsComponent>(uid, out var itemSlots))
-        {
-            return;
-        }
-
-        foreach (var itemSlot in itemSlots.Slots)
-        {
-            if (TryComp<PowerSuitModuleComponent>(itemSlot.Value.Item, out var moduleComponent))
-            {
-                if (moduleComponent.OnAdd == null)
-                {
-                    return;
-                }
-
-                AddModuleComponents(uid, moduleComponent.OnAdd);
-            }
         }
     }
 

@@ -1,0 +1,4 @@
+﻿- type: powerSuitInventory
+  id: BasePowersuitInventory
+  inventory:
+  - BasicMeshModuleItem

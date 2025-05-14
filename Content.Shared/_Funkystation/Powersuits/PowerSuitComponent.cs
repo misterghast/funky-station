@@ -45,5 +45,7 @@ public sealed partial class PowerSuitComponent : Component
 
     [DataField]
     public EntProtoId InitialMaterial = default!;
+
+    public static string BaseStorageSlotId = "SuitModule-storageSlot";
 }
 

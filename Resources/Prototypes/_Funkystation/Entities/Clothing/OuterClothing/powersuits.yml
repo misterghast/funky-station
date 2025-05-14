@@ -3,3 +3,11 @@
   id: BasePowersuit
   components:
   - type: PowerSuit
+    storageWhitelist:
+      tags:
+      - PowersuitModule
+    pack: BasePowersuitInventory
+  - type: Sprite
+    sprite: Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: junk-intercom-1

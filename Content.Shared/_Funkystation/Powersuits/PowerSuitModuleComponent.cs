@@ -28,5 +28,5 @@ public sealed partial class PowerSuitModuleComponent : Component
     ///     Can this module be enabled or disabled? Far more used for modules than organs.
     /// </summary>
     [DataField]
-    public bool CanEnable = true;
+    public bool CanEnable = false;
 }
